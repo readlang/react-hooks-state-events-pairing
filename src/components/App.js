@@ -1,18 +1,17 @@
+import React from "react";
 import video from "../data/video.js";
 
-function App() {
-  console.log("Here's your data:", video);
+import VideoArea from "./VideoArea.js";
+import VoteArea from "./VoteArea.js";
+import CommentArea from "./CommentArea.js";
 
+function App() {
+  
   return (
     <div className="App">
-      <iframe
-        width="919"
-        height="525"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameBorder="0"
-        allowFullScreen
-        title="Thinking in React"
-      />
+      <VideoArea videoData={video} />
+      <VoteArea videoData={video} />
+      <CommentArea videoData={video} />
     </div>
   );
 }
