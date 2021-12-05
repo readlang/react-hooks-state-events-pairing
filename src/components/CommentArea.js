@@ -3,15 +3,21 @@ import Comment from "./Comment.js"
 
 function CommentArea({ videoData }) {
     const [commentsVisible, setCommentsVisible] = useState( true )
-    console.log(commentsVisible)
+    
+    function showComments() {
+        return(
+            <>
+                <h2>{videoData.comments.length} Comments</h2>
+                { videoData.comments.map((x) => <Comment key={x.id} user={x.user} comment={x.comment}/>) }
+            </>
+        )
+    }
 
     return(
         <div>
             <button onClick={ ()=> setCommentsVisible(!commentsVisible) } > { commentsVisible ? "Hide Comments" : "Show Comments"} </button>
             <hr/>
-            <h2>{videoData.comments.length} Comments</h2>
-            <Comment />
-            <Comment /> 
+            {commentsVisible ? showComments() : "Comments have been hidden" }
         </div>
     )
 }
