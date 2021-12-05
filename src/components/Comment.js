@@ -1,9 +1,10 @@
 import React from "react";
 
-function Comment() {
+function Comment({ user, comment }) {
     return(
         <div>
-            Comment
+            <h3>{user}</h3>
+            <div> {comment} </div>
         </div>
     )
 }
